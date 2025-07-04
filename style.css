@@ -1,0 +1,446 @@
+/* Importar fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&family=Orbitron:wght@700&display=swap');
+
+/* --- Reseteo Básico --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; /* Fuente principal para el cuerpo */
+    line-height: 1.6;
+    color: #E0E0E0; /* Color de texto claro para fondos oscuros */
+    background-color: #121212; /* Fondo muy oscuro, casi negro */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* --- Encabezados y Tipografía --- */
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif; /* Fuente de estilo futurista/gamer */
+    font-weight: 700;
+    color: #00F0FF; /* Cian eléctrico para títulos */
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.4); /* Pequeña sombra de brillo */
+}
+
+h1 {
+    font-size: 4.2em; /* Más grande y audaz */
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 3.2em; /* También más grande */
+    margin-bottom: 60px;
+}
+
+h3 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 1em;
+    color: #BBBBBB; /* Texto de párrafo más claro */
+}
+
+/* --- Componentes Compartidos --- */
+.btn {
+    display: inline-block;
+    padding: 16px 40px; /* Un poco más grandes */
+    text-decoration: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px; /* Más espaciado entre letras */
+    font-weight: 700; /* Más negrita */
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    position: relative; /* Para efectos de brillo */
+    overflow: hidden; /* Para el efecto de "brillo" del botón */
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); /* Efecto de brillo que pasa */
+    transform: skewX(-30deg);
+    transition: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background-color: #008DDA; /* Azul vibrante */
+    color: #ffffff;
+    font-size: 1.3em;
+    box-shadow: 0 0 20px rgba(0, 141, 218, 0.6); /* Sombra con brillo azul */
+}
+
+.btn-primary:hover {
+    background-color: #006AB5;
+    transform: translateY(-5px); /* Efecto de elevación más pronunciado */
+    box-shadow: 0 0 30px rgba(0, 141, 218, 0.8);
+}
+
+.btn-secondary {
+    background-color: #00FFFF; /* Cian eléctrico */
+    color: #121212; /* Texto oscuro sobre botón brillante */
+    font-size: 1.1em;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.btn-secondary:hover {
+    background-color: #00E0E0;
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+}
+
+/* --- Header (Encabezado) --- */
+.main-header {
+    background: #0D0D0D; /* Más oscuro que el cuerpo */
+    color: #ffffff;
+    padding: 20px 0; /* Un poco más de padding */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Sombra más fuerte */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    border-bottom: 2px solid #333333; /* Borde sutil para definir */
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header .logo {
+    color: #00F0FF; /* Cian para el logo */
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif; /* Logo con fuente gamer */
+    font-size: 2.2em; /* Más grande */
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.6); /* Brillo en el logo */
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 35px; /* Más espacio */
+}
+
+.main-nav ul li a {
+    color: #B0B0B0; /* Texto de navegación gris claro */
+    text-decoration: none;
+    padding: 10px 0;
+    position: relative; /* Para el efecto de subrayado */
+    transition: color 0.3s ease;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px; /* Subrayado más grueso */
+    background: #008DDA; /* Subrayado azul */
+    bottom: -5px; /* Un poco más abajo */
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.main-nav ul li a:hover::after,
+.main-nav ul li a.active::after { /* Opcional: para página activa */
+    width: 100%;
+}
+
+.main-nav ul li a:hover {
+    color: #00F0FF; /* Cian brillante al pasar el mouse */
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.5); /* Pequeño brillo al pasar */
+}
+
+/* --- Hero Section (Sección Principal) --- */
+.hero-section {
+    background: linear-gradient(to right, #001F3F, #004D99); /* Degradado azul oscuro a medio */
+    color: #ffffff;
+    text-align: center;
+    padding: 150px 20px; /* Más padding para impacto */
+    min-height: 600px; /* Asegura un buen tamaño */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 5px solid #00F0FF; /* Borde inferior vibrante (cian) */
+}
+
+/* Fondo con patrón más gamer */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.08" fill-rule="evenodd"%3E%3Cpath d="M0 0h30v30H0V0zm30 30h30v30H30V30z"/%3E%3C/g%3E%3C/svg%3E'); /* Patrón de cuadros sutil */
+    opacity: 0.15; /* Más visible */
+    z-index: 0;
+    animation: backgroundMove 60s linear infinite; /* Animación de fondo sutil */
+}
+
+@keyframes backgroundMove {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 600px 600px; /* Mueve el patrón lentamente */
+    }
+}
+
+.hero-section h1,
+.hero-section .subtitle,
+.hero-section .btn {
+    z-index: 1; /* Asegura que el contenido esté sobre el patrón */
+}
+
+.hero-section .subtitle {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5em; /* Más grande */
+    max-width: 800px;
+    margin: 0 auto 60px auto; /* Más espacio debajo */
+    line-height: 1.6;
+    color: #E0E0E0;
+}
+
+/* --- Offerings Section (Sección de Ofertas) --- */
+.offerings-section {
+    background-color: #1A1A1A; /* Un gris oscuro */
+    padding: 100px 0; /* Más padding */
+    text-align: center;
+    border-top: 2px solid #282828;
+    border-bottom: 2px solid #282828;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Tarjetas un poco más grandes */
+    gap: 50px; /* Más espacio entre tarjetas */
+    justify-content: center;
+    align-items: stretch;
+}
+
+.offer-card {
+    background: #252525; /* Fondo de tarjeta más oscuro */
+    padding: 40px; /* Más padding */
+    border-radius: 15px; /* Bordes más redondeados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Sombra más fuerte */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 240, 255, 0.2); /* Borde sutil cian */
+}
+
+.offer-card:hover {
+    transform: translateY(-10px); /* Elevación más pronunciada */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid #00FFFF; /* Borde cian brillante al hover */
+}
+
+.offer-card h3 {
+    color: #00F0FF; /* Títulos de tarjeta en cian */
+    text-shadow: none; /* Quitar sombra de texto si no se ve bien */
+}
+
+.offer-card p {
+    color: #C0C0C0; /* Texto de párrafo más claro */
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+/* --- About Section (Sección Quiénes Somos) --- */
+.about-section {
+    background-color: #121212; /* Mismo fondo que el body */
+    padding: 100px 0;
+    text-align: center;
+}
+
+.about-section h2 {
+    color: #008DDA; /* Título en azul vibrante */
+    text-shadow: 0 0 8px rgba(0, 141, 218, 0.4);
+}
+
+.about-section p {
+    max-width: 900px;
+    margin: 0 auto;
+    color: #BBBBBB;
+}
+
+/* --- Contact Section (Sección Contacto) --- */
+.contact-section {
+    background: linear-gradient(to right, #001F3F, #004D99); /* Mismo degradado azul que hero */
+    color: #ffffff;
+    padding: 100px 0;
+    text-align: center;
+    border-top: 5px solid #008DDA; /* Borde superior azul vibrante */
+}
+
+.contact-section h2 {
+    color: #00FFFF; /* Título en cian */
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+.contact-section p {
+    color: #E0E0E0;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+}
+
+.contact-info {
+    margin-top: 50px;
+}
+
+.contact-info p {
+    margin-bottom: 25px;
+    color: #C0C0C0;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.social-links a img {
+    width: 40px; /* Iconos más grandes */
+    height: 40px;
+    filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(0, 240, 255, 0.5)); /* Brillo cian */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-links a img:hover {
+    transform: scale(1.3); /* Zoom más grande */
+    filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(0, 141, 218, 0.7)); /* Brillo azul al hover */
+}
+
+/* --- Footer (Pie de Página) --- */
+.main-footer {
+    background: #0D0D0D;
+    color: #808080; /* Texto más tenue */
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+    border-top: 2px solid #282828;
+}
+
+/* --- Media Queries para Responsividad (adaptados a los nuevos tamaños) --- */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 3.5em;
+    }
+    h2 {
+        font-size: 2.8em;
+        margin-bottom: 40px;
+    }
+    .hero-section {
+        padding: 100px 20px;
+    }
+    .hero-section .subtitle {
+        font-size: 1.3em;
+        margin-bottom: 40px;
+    }
+    .offerings-section, .about-section, .contact-section {
+        padding: 80px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .main-header .logo {
+        margin-bottom: 15px;
+    }
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .main-nav ul li {
+        margin: 0 10px 10px;
+    }
+    .main-nav ul li a {
+        padding: 8px 15px;
+    }
+
+    h1 {
+        font-size: 2.8em;
+    }
+    .hero-section .subtitle {
+        font-size: 1.1em;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    .offer-card {
+        padding: 30px;
+    }
+    .btn {
+        font-size: 1.1em;
+        padding: 14px 30px;
+    }
+    .social-links a img {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.2em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    .hero-section {
+        padding: 70px 15px;
+        min-height: 380px;
+    }
+    .hero-section .subtitle {
+        font-size: 0.95em;
+        margin-bottom: 30px;
+    }
+    .main-nav ul li {
+        margin: 0 5px 10px;
+    }
+    .btn {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+}
